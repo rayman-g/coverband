@@ -27,7 +27,8 @@ namespace :coverband do
       Coverband.configuration.store.merge_mode = true
     end
     Rack::Server.start app: Coverband::Reporters::Web.new,
-                       Port: ENV.fetch("COVERBAND_COVERAGE_PORT", 9022).to_i
+                       Port: ENV.fetch("COVERBAND_COVERAGE_PORT", 9022).to_i,
+                       Host: ENV.fetch("COVERBAND_COVERAGE_HOST", 0.0.0.0)
   end
 
   ###
